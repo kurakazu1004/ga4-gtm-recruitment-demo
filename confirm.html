@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>応募内容確認 | Example Careers</title>
+</head>
+<body>
+
+<header>
+  <h1>Example Careers</h1>
+</header>
+
+<main>
+  <h2>応募内容確認</h2>
+
+  <p>入力内容を確認して応募を完了してください。</p>
+
+  <div id="summary"></div>
+
+  <br>
+
+  <a id="complete-link" href="./complete.html">
+    応募を完了する
+  </a>
+</main>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+
+  const name = params.get('name');
+  const email = params.get('email');
+  const phone = params.get('phone');
+  const location = params.get('location');
+  const jobId = params.get('job_id');
+
+  document.getElementById('summary').innerHTML = `
+    <p>氏名：${name || ''}</p>
+    <p>メールアドレス：${email || ''}</p>
+    <p>電話番号：${phone || ''}</p>
+    <p>希望勤務地：${location || ''}</p>
+    <p>求人ID：${jobId || ''}</p>
+  `;
+
+  const nextParams = new URLSearchParams();
+  if (jobId) nextParams.set('job_id', jobId);
+
+  document.getElementById('complete-link').href =
+    './complete.html?' + nextParams.toString();
+</script>
+
+</body>
+</html>
