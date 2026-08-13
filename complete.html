@@ -27,10 +27,30 @@
   const params = new URLSearchParams(window.location.search);
   const jobId = params.get('job_id');
 
+  let jobName = '';
+  let jobCategory = '';
+
+  if (jobId === '123') {
+    jobName = '法人営業';
+    jobCategory = '営業';
+  } else if (jobId === '456') {
+    jobName = 'Webエンジニア';
+    jobCategory = 'エンジニア';
+  }
+
   if (jobId) {
     document.getElementById('job-info').textContent =
       '応募求人ID：' + jobId;
   }
+
+  window.dataLayer = window.dataLayer || [];
+
+  dataLayer.push({
+    event: 'apply_complete',
+    job_id: jobId,
+    job_name: jobName,
+    job_category: jobCategory
+  });
 </script>
 
 </body>
