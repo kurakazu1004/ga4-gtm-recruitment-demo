@@ -41,6 +41,17 @@
   <a href="./apply.html?job_id=456">この求人に応募する</a>
 
 </main>
+  
+<script>
+window.dataLayer = window.dataLayer || [];
 
+dataLayer.push({
+  event: 'job_detail_view',
+  job_id: '456',
+  job_name: 'Webエンジニア',
+  job_category: 'エンジニア'
+});
+</script>
+  
 </body>
 </html>
