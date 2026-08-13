@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>応募完了 | Example Careers</title>
+</head>
+<body>
+
+<header>
+  <h1>Example Careers</h1>
+</header>
+
+<main>
+  <h2>応募ありがとうございました</h2>
+
+  <p>
+    応募を受け付けました。
+  </p>
+
+  <p id="job-info"></p>
+
+  <a href="./index.html">TOPへ戻る</a>
+</main>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const jobId = params.get('job_id');
+
+  if (jobId) {
+    document.getElementById('job-info').textContent =
+      '応募求人ID：' + jobId;
+  }
+</script>
+
+</body>
+</html>
