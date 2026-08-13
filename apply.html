@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>応募フォーム | Example Careers</title>
+</head>
+<body>
+
+<header>
+  <h1>Example Careers</h1>
+  <nav>
+    <a href="./index.html">TOP</a>
+    <a href="./jobs.html">求人一覧</a>
+  </nav>
+</header>
+
+<main>
+  <h2>応募フォーム</h2>
+
+  <form action="./confirm.html" method="get">
+
+    <label>
+      氏名<br>
+      <input type="text" name="name" required>
+    </label>
+
+    <br><br>
+
+    <label>
+      メールアドレス<br>
+      <input type="email" name="email" required>
+    </label>
+
+    <br><br>
+
+    <label>
+      電話番号<br>
+      <input type="tel" name="phone">
+    </label>
+
+    <br><br>
+
+    <label>
+      希望勤務地<br>
+      <select name="location">
+        <option value="tokyo">東京</option>
+        <option value="osaka">大阪</option>
+      </select>
+    </label>
+
+    <input type="hidden" id="job_id" name="job_id">
+
+    <br><br>
+
+    <button type="submit">確認画面へ</button>
+
+  </form>
+</main>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const jobId = params.get('job_id');
+
+  if (jobId) {
+    document.getElementById('job_id').value = jobId;
+  }
+</script>
+
+</body>
+</html>
