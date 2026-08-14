@@ -31,14 +31,14 @@
   const name = params.get('name');
   const email = params.get('email');
   const phone = params.get('phone');
-  const location = params.get('location');
+  const preferredLocation = params.get('location');
   const jobId = params.get('job_id');
 
   document.getElementById('summary').innerHTML = `
     <p>氏名：${name || ''}</p>
     <p>メールアドレス：${email || ''}</p>
     <p>電話番号：${phone || ''}</p>
-    <p>希望勤務地：${location || ''}</p>
+    <p>希望勤務地：${preferredLocation || ''}</p>
     <p>求人ID：${jobId || ''}</p>
   `;
 
